@@ -18,7 +18,7 @@ export default function Footer() {
       </p>
       <div style={{ display: 'flex', gap: '24px' }}>
         {[
-          { href: 'https://www.instagram.com/bezybeedesign/', label: 'Instagram' },
+          { href: 'https://www.instagram.com/folusho.design/', label: 'Instagram' },
           { href: 'https://www.linkedin.com/in/folushojoseph/', label: 'Linkedin' },
           { href: 'https://x.com/FoluJoseph', label: 'Twitter' },
         ].map(({ href, label }) => (
