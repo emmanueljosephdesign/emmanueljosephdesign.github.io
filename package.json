@@ -8,7 +8,7 @@
     "cms:online:dev": "wrangler dev --config online-cms/wrangler.jsonc",
     "cms:online:deploy": "wrangler deploy --config online-cms/wrangler.jsonc",
     "test:cms:online": "node --test online-cms/worker.test.mjs",
-    "dev": "next dev",
+    "dev": "next dev --webpack",
     "build": "next build",
     "start": "next start",
     "lint": "eslint"

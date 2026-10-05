@@ -4,10 +4,17 @@
   z-index: 1000;
   display: grid;
   place-items: center;
+  visibility: hidden;
   overflow: hidden;
   background: var(--purple);
   animation: intro-exit 700ms cubic-bezier(0.76, 0, 0.24, 1) 2.7s forwards;
+  animation-play-state: paused;
   will-change: transform, filter;
+}
+
+.intro[data-active='true'] {
+  visibility: visible;
+  animation-play-state: running;
 }
 
 .identity {
@@ -63,6 +70,18 @@
   filter: blur(3px);
   animation: wordmark-text-in 620ms cubic-bezier(0.16, 1, 0.3, 1) 1.04s forwards;
   will-change: opacity, transform, filter;
+}
+
+.intro:not([data-active='true']) .mark,
+.intro:not([data-active='true']) .wordmarkReveal,
+.intro:not([data-active='true']) .wordmark {
+  animation-play-state: paused;
+}
+
+.intro[data-active='true'] .mark,
+.intro[data-active='true'] .wordmarkReveal,
+.intro[data-active='true'] .wordmark {
+  animation-play-state: running;
 }
 
 @keyframes mark-in {

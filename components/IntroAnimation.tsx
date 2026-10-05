@@ -1,16 +1,18 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useLayoutEffect, useRef, useState } from 'react';
 import FJMonogram from './FJMonogram';
 import styles from './IntroAnimation.module.css';
 
-const INTRO_SESSION_KEY = 'efj-portfolio-intro-played';
+const INTRO_SESSION_KEY = 'efj-portfolio-intro-played-v2';
 const INTRO_DURATION_MS = 3500;
 
 export default function IntroAnimation() {
   const [visible, setVisible] = useState(true);
+  const introRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
+    const introElement = introRef.current;
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const hasPlayed = window.sessionStorage.getItem(INTRO_SESSION_KEY) === 'true';
 
@@ -21,12 +23,17 @@ export default function IntroAnimation() {
 
     const previousOverflow = document.body.style.overflow;
     document.body.style.overflow = 'hidden';
-    window.sessionStorage.setItem(INTRO_SESSION_KEY, 'true');
+    introElement?.setAttribute('data-active', 'true');
 
-    const timer = window.setTimeout(() => setVisible(false), INTRO_DURATION_MS);
+    const timer = window.setTimeout(() => {
+      window.sessionStorage.setItem(INTRO_SESSION_KEY, 'true');
+      document.body.style.overflow = previousOverflow;
+      setVisible(false);
+    }, INTRO_DURATION_MS);
 
     return () => {
       window.clearTimeout(timer);
+      introElement?.removeAttribute('data-active');
       document.body.style.overflow = previousOverflow;
     };
   }, []);
@@ -34,7 +41,7 @@ export default function IntroAnimation() {
   if (!visible) return null;
 
   return (
-    <div className={styles.intro} aria-hidden="true">
+    <div ref={introRef} className={styles.intro} aria-hidden="true">
       <div className={styles.identity}>
         <div className={styles.mark}>
           <FJMonogram size={80} backgroundColor="#FFFFFF" markColor="#B300EF" />

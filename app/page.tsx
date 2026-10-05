@@ -23,13 +23,15 @@ export default async function Home() {
             style={{
               fontSize: 'clamp(32px, 4vw, 52px)',
               fontWeight: 900,
-              fontStyle: 'italic',
               lineHeight: 1.15,
               letterSpacing: '-0.02em',
               marginBottom: '48px',
             }}
           >
-            Hi, I&apos;m Emmanuel — I help businesses look sharp, sound clear, and stand out for the right reasons. Through brand and marketing design, I turn ideas into visuals that actually do their job.
+            Hi, I&apos;m Emmanuel. I help businesses look sharp, communicate clearly, and stand out for the right reasons.{' '}
+            <span style={{ opacity: 0.4 }}>
+              Through brand and marketing design, I turn ideas into purposeful visuals that work.
+            </span>
           </h1>
 
           <div style={{ display: 'flex', gap: '12px', width: '50%' }}>
