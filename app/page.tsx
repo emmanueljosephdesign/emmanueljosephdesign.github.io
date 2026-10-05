@@ -21,7 +21,7 @@ export default async function Home() {
         >
           <h1
             style={{
-              fontSize: 'clamp(42px, 4vw, 52px)',
+              fontSize: 'clamp(32px, 4vw, 52px)',
               fontWeight: 900,
               fontStyle: 'italic',
               lineHeight: 1.15,
