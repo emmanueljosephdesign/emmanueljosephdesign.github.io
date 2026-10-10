@@ -26,6 +26,15 @@ html {
   overflow-x: hidden;
 }
 
+html[data-portfolio-intro-state='play'] {
+  overflow: hidden;
+}
+
+html[data-portfolio-intro-state='skip'] [data-portfolio-intro],
+html[data-portfolio-intro-state='done'] [data-portfolio-intro] {
+  display: none;
+}
+
 body {
   min-height: 100vh;
   display: flex;
