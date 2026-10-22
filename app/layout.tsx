@@ -10,9 +10,35 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://emmanueljosephdesign.github.io'),
   title: 'Emmanuel Folusho Joseph — Brand & Marketing Designer',
   description:
     'Portfolio of Emmanuel Folusho Joseph, a brand and marketing designer building distinctive visual identities and high-performing campaigns.',
+  openGraph: {
+    title: 'Emmanuel Folusho Joseph — Brand & Marketing Designer',
+    description:
+      'Portfolio of Emmanuel Folusho Joseph, a brand and marketing designer building distinctive visual identities and high-performing campaigns.',
+    url: 'https://emmanueljosephdesign.github.io',
+    siteName: 'Emmanuel Folusho Joseph Portfolio',
+    images: [
+      {
+        url: '/og-image.jpg',
+        width: 1024,
+        height: 537,
+        alt: 'Emmanuel Folusho Joseph — Brand & Marketing Designer',
+      },
+    ],
+    locale: 'en_US',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Emmanuel Folusho Joseph — Brand & Marketing Designer',
+    description:
+      'Portfolio of Emmanuel Folusho Joseph, a brand and marketing designer building distinctive visual identities and high-performing campaigns.',
+    creator: '@FoluJoseph',
+    images: ['/og-image.jpg'],
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
